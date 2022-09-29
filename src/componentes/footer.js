@@ -1,15 +1,16 @@
 import styled from "styled-components"
 
-export default function Footer (){
+export default function Footer (props){
+
     const collorsButton = ["#FF3030", "#FF922E", "#2FBE34"]
     return (
         <FooterConcluded>
         <ContainerButtons>
-            <ButtonDontRemember color={collorsButton[0]} type="button">Não lembrei</ButtonDontRemember>
-            <ButtonDontRemember color={collorsButton[1]} type="button">Quase não lembrei</ButtonDontRemember>
-            <ButtonDontRemember color={collorsButton[2]} type="button">Zap!</ButtonDontRemember>
+            <ButtonDontRemember color={collorsButton[0]} type="button" onClick={() => props.onClick("Não lembrei")}>Não lembrei</ButtonDontRemember>
+            <ButtonDontRemember color={collorsButton[1]} type="button" onClick={() => props.onClick("Quase não lembrei")}>Quase não lembrei</ButtonDontRemember>
+            <ButtonDontRemember color={collorsButton[2]} type="button" onClick={() => props.onClick("Zap!")}>Zap!</ButtonDontRemember>
         </ContainerButtons>
-        <CounterText>0/4 CONCLUÍDOS</CounterText>
+        <CounterText>0/8 CONCLUÍDOS</CounterText>
     </FooterConcluded>
     )
 }

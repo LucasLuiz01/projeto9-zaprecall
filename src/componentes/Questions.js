@@ -1,18 +1,22 @@
-import setaplay from "./img/seta_play.png"
+import setaplay from "../img/seta_play.png"
 import styled from "styled-components"
 import React from "react"
-import iconeCerto from "./img/icone_certo.png"
-import iconeErro from "./img/icone_erro.png"
-import iconequase from "./img/icone_quase.png"
-import party from "./img/party.png"
-import sad from "./img/sad.png"
-import setavirar from "./img/seta_virar.png"
-export default function Questions ({QuestionNumber, perguntas, respostas}){
+import setavirar from "../img/seta_virar.png"
+export default function Questions ({QuestionNumber, perguntas, respostas, onClick, isClosed}){
     const [textCard, setTextCard] = React.useState(QuestionNumber)
     const [DivCard, setDiv] = React.useState(QuestionClose)
     const [imageCard, setImageCard] = React.useState(setaplay)
     const [ConfigCard, setConfigCard] = React.useState(image)
     let changeText = ""
+
+    if (isClosed) {
+      console.log(isClosed);
+      return (<QuestionClose>
+              <TextQuestionClose> {QuestionNumber} </TextQuestionClose>
+              <ConfigCard src={imageCard} onClick={() => {onClick(); ChosenQuestion()}}/>
+              </QuestionClose>);
+    }
+
     function ChosenQuestion(){
         if(textCard === QuestionNumber){
              changeText = perguntas
@@ -29,8 +33,9 @@ export default function Questions ({QuestionNumber, perguntas, respostas}){
     }
    return( <DivCard>
         <TextQuestionClose> {textCard} </TextQuestionClose>
-        <ConfigCard src={imageCard} onClick={ChosenQuestion}/>
+        <ConfigCard src={imageCard} onClick={() => {onClick(); ChosenQuestion()}}/>
         </DivCard>
+        
    )
 }
 const QuestionClose = styled.div

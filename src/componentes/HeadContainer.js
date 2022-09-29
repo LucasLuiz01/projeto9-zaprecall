@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logo from "./img/logo.png";
+import logo from "../img/logo.png";
 export default function HeadContainer() {
   return (  <LogoContainer>
         <Imagelogo src={logo} />
