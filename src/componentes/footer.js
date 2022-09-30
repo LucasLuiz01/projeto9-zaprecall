@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export default function Footer (props){
-
+console.log(props)
     const collorsButton = ["#FF3030", "#FF922E", "#2FBE34"]
     return (
         <FooterConcluded>
@@ -10,7 +10,7 @@ export default function Footer (props){
             <ButtonDontRemember color={collorsButton[1]} type="button" onClick={() => props.onClick("Quase não lembrei")}>Quase não lembrei</ButtonDontRemember>
             <ButtonDontRemember color={collorsButton[2]} type="button" onClick={() => props.onClick("Zap!")}>Zap!</ButtonDontRemember>
         </ContainerButtons>
-        <CounterText>0/8 CONCLUÍDOS</CounterText>
+        <CounterText>{props.closedQuestions.filter((n)=>n!==undefined).length}/{props.closedQuestions.length} CONCLUÍDOS</CounterText>
     </FooterConcluded>
     )
 }

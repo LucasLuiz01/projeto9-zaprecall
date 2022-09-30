@@ -13,8 +13,17 @@ export default function Container() {
         if (currentQuestion === -1) {
             return;
         }
-        
         const newClosedQuestions = [...closedQuestions];
+        if(newClosedQuestions[currentQuestion] === "Zap!"){
+            return
+        }
+        if(newClosedQuestions[currentQuestion] === "Quase não lembrei"){
+            return
+        }
+        if(newClosedQuestions[currentQuestion] === "Não lembrei"){
+            return
+        }
+        
         newClosedQuestions[currentQuestion] = option;
         setClosedQuestions([...newClosedQuestions]);
     }
@@ -32,7 +41,7 @@ export default function Container() {
             isClosed={closedQuestions[i]}
             />
             )}
-                <Footer onClick={closeQuestion}/>
+                <Footer closedQuestions={closedQuestions} onClick={closeQuestion}/>
         </ScreenContainer>
     )
 }

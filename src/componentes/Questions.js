@@ -2,38 +2,48 @@ import setaplay from "../img/seta_play.png"
 import styled from "styled-components"
 import React from "react"
 import setavirar from "../img/seta_virar.png"
+import { Icon } from "./icones";
+
+
 export default function Questions ({QuestionNumber, perguntas, respostas, onClick, isClosed}){
     const [textCard, setTextCard] = React.useState(QuestionNumber)
     const [DivCard, setDiv] = React.useState(QuestionClose)
     const [imageCard, setImageCard] = React.useState(setaplay)
-    const [ConfigCard, setConfigCard] = React.useState(image)
-    let changeText = ""
+   
 
     if (isClosed) {
       console.log(isClosed);
       return (<QuestionClose>
               <TextQuestionClose> {QuestionNumber} </TextQuestionClose>
-              <ConfigCard src={imageCard} onClick={() => {onClick(); ChosenQuestion()}}/>
+              <Icon img={isClosed} />
               </QuestionClose>);
     }
 
     function ChosenQuestion(){
         if(textCard === QuestionNumber){
-             changeText = perguntas
-            setTextCard(changeText)
+            setTextCard(perguntas)
             setDiv(QuestionOpen)
             setImageCard(setavirar)
-            setConfigCard(imageOpen)
+          
         }
         if(textCard === perguntas){
-            changeText = respostas
             setTextCard(respostas)
             setImageCard()
         }
     }
+
+    let img = ""
+
+    if (imageCard === setavirar) {
+      img = "virar"
+    }
+
+    if (imageCard === setaplay) {
+      img = "play"
+    }
    return( <DivCard>
         <TextQuestionClose> {textCard} </TextQuestionClose>
-        <ConfigCard src={imageCard} onClick={() => {onClick(); ChosenQuestion()}}/>
+        <Icon img={img} onClick={() => {onClick(); ChosenQuestion()}}/>
         </DivCard>
         
    )
@@ -80,7 +90,7 @@ font-family: 'Recursive';
   line-height: 19px;
   color: #333333;
 `
-const image = styled.img
+const Image = styled.img
 `
 width: 20px;
 `
