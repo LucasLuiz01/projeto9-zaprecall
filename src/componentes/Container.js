@@ -34,7 +34,7 @@ export default function Container() {
             {anserwsEquestions.map((q,i)=>  
             <Questions 
             id={i} key={i} 
-            QuestionNumber={`pergunta${i+1}`} 
+            QuestionNumber={`Pergunta ${i+1}`} 
             perguntas={q.perguntas} 
             respostas={q.respostas}
             onClick={() => setCurrentQuestion(i)}
