@@ -14,11 +14,10 @@ export default function Questions ({QuestionNumber, perguntas, respostas, onClic
     if (isClosed) {
       console.log(isClosed);
       return (<QuestionClose>
-              <TextCorrect> {QuestionNumber} </TextCorrect>
+              <TextClose isClosed={isClosed}> {QuestionNumber} </TextClose>
               <Icon img={isClosed} />
               </QuestionClose>);
     }
-
     function ChosenQuestion(){
         if(textCard === QuestionNumber){
             setTextCard(perguntas)
@@ -107,6 +106,27 @@ font-family: 'Recursive';
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  color: #2FBE34;
+  color: #333333;
   text-decoration: line-through;
 `
+const TextClose = styled.p
+`
+font-family: 'Recursive';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color:${({isClosed})=>finish(isClosed)};
+  text-decoration: line-through;
+`
+function finish (isClosed){
+  if(isClosed==="Zap!"){
+    return "#2FBE34"
+  }
+  else if(isClosed==="Quase não lembrei"){
+    return "#FF922E"
+  }else{
+    return "#FF3030"
+  }
+  
+}
