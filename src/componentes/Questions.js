@@ -14,7 +14,7 @@ export default function Questions ({QuestionNumber, perguntas, respostas, onClic
     if (isClosed) {
       console.log(isClosed);
       return (<QuestionClose>
-              <TextQuestionClose> {QuestionNumber} </TextQuestionClose>
+              <TextCorrect> {QuestionNumber} </TextCorrect>
               <Icon img={isClosed} />
               </QuestionClose>);
     }
@@ -99,4 +99,14 @@ const imageOpen = styled.img
 position: absolute;
 bottom: 10px;
 right: 10px;
+`
+const TextCorrect = styled.p
+`
+font-family: 'Recursive';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #2FBE34;
+  text-decoration: line-through;
 `
