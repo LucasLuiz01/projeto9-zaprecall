@@ -6,11 +6,11 @@ console.log(props)
     return (
         <FooterConcluded>
         <ContainerButtons>
-            <ButtonDontRemember color={collorsButton[0]} type="button" onClick={() => props.onClick("Não lembrei")}>Não lembrei</ButtonDontRemember>
-            <ButtonDontRemember color={collorsButton[1]} type="button" onClick={() => props.onClick("Quase não lembrei")}>Quase não lembrei</ButtonDontRemember>
-            <ButtonDontRemember color={collorsButton[2]} type="button" onClick={() => props.onClick("Zap!")}>Zap!</ButtonDontRemember>
+            <ButtonDontRemember data-identifier="forgot-btn" color={collorsButton[0]} type="button" onClick={() => props.onClick("Não lembrei")}>Não lembrei</ButtonDontRemember>
+            <ButtonDontRemember data-identifier="almost-forgot-btn" color={collorsButton[1]} type="button" onClick={() => props.onClick("Quase não lembrei")}>Quase não lembrei</ButtonDontRemember>
+            <ButtonDontRemember data-identifier="zap-btn" color={collorsButton[2]} type="button" onClick={() => props.onClick("Zap!")}>Zap!</ButtonDontRemember>
         </ContainerButtons>
-        <CounterText>{props.closedQuestions.filter((n)=>n!==undefined).length}/{props.closedQuestions.length} CONCLUÍDOS</CounterText>
+        <CounterText data-identifier="flashcard-counter">{props.closedQuestions.filter((n)=>n!==undefined).length}/{props.closedQuestions.length} CONCLUÍDOS</CounterText>
     </FooterConcluded>
     )
 }

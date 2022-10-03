@@ -14,7 +14,7 @@ export default function Questions ({QuestionNumber, perguntas, respostas, onClic
     if (isClosed) {
       console.log(isClosed);
       return (<QuestionClose>
-              <TextClose isClosed={isClosed}> {QuestionNumber} </TextClose>
+              <TextClose ata-identifier="flashcard-status" isClosed={isClosed}> {QuestionNumber} </TextClose>
               <Icon img={isClosed} />
               </QuestionClose>);
     }
@@ -40,9 +40,9 @@ export default function Questions ({QuestionNumber, perguntas, respostas, onClic
     if (imageCard === setaplay) {
       img = "play"
     }
-   return( <DivCard>
-        <TextQuestionClose> {textCard} </TextQuestionClose>
-        <Icon img={img} onClick={() => {onClick(); ChosenQuestion()}}/>
+   return( <DivCard data-identifier="flashcard">
+        <TextQuestionClose data-identifier="flashcard-index-item"> {textCard} </TextQuestionClose>
+        <Icon data-identifier="flashcard-show-btn" img={img} onClick={() => {onClick(); ChosenQuestion()}}/>
         </DivCard>
         
    )
